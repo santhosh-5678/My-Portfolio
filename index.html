@@ -1043,5 +1043,119 @@
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Portfolio AI Chatbot -->
+    <div class="portfolio-chatbot" id="portfolio-chatbot">
+      <button
+        class="chatbot-toggle"
+        id="chatbot-toggle"
+        type="button"
+        aria-label="Open portfolio assistant"
+        aria-expanded="false"
+        aria-controls="chatbot-window"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M12 8V4H8" />
+          <rect x="4" y="8" width="16" height="12" rx="3" />
+          <path d="M9 13h.01M15 13h.01M9 17h6" />
+          <path d="M2 13v3M22 13v3" />
+        </svg>
+        <span class="chatbot-notification" aria-hidden="true"></span>
+      </button>
+
+      <section
+        class="chatbot-window"
+        id="chatbot-window"
+        role="dialog"
+        aria-label="Santhosh's portfolio assistant"
+        aria-hidden="true"
+      >
+        <header class="chatbot-header">
+          <div class="chatbot-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="8" width="16" height="12" rx="3" />
+              <path d="M12 8V4M9 13h.01M15 13h.01M9 17h6" />
+            </svg>
+          </div>
+
+          <div class="chatbot-heading">
+            <h3>Santhosh's AI Assistant</h3>
+            <p><span class="chatbot-status-dot"></span> Personal portfolio assistant</p>
+          </div>
+
+          <button
+            class="chatbot-close"
+            id="chatbot-close"
+            type="button"
+            aria-label="Close chat"
+          >&times;</button>
+        </header>
+
+        <div class="chatbot-messages" id="chatbot-messages" aria-live="polite">
+          <div class="chat-message bot-message">
+            Hi! I'm Santhosh's portfolio assistant. You can ask me about his
+            projects, technical skills, education, and experience.
+          </div>
+        </div>
+
+        <div class="chatbot-suggestions" id="chatbot-suggestions">
+          <button type="button" data-question="Tell me about Santhosh's projects">
+            Projects
+          </button>
+          <button type="button" data-question="What technical skills does Santhosh have?">
+            Skills
+          </button>
+          <button type="button" data-question="Tell me about Santhosh's experience">
+            Experience
+          </button>
+        </div>
+
+        <form class="chatbot-form" id="chatbot-form">
+          <input
+            id="chatbot-input"
+            type="text"
+            placeholder="Ask me anything..."
+            aria-label="Your message"
+            autocomplete="off"
+            maxlength="1000"
+            required
+          />
+
+          <button
+            class="chatbot-mic"
+            id="chatbot-mic"
+            type="button"
+            aria-label="Speak your question"
+            title="Speak your question"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <rect x="9" y="2" width="6" height="12" rx="3" />
+              <path d="M5 10a7 7 0 0 0 14 0M12 17v5M9 22h6" />
+            </svg>
+          </button>
+
+          <button
+            class="chatbot-send"
+            type="submit"
+            aria-label="Send message"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="m22 2-7 20-4-9-9-4Z" />
+              <path d="M22 2 11 13" />
+            </svg>
+          </button>
+        </form>
+
+        <p class="chatbot-footer">Powered by AI · Portfolio information only</p>
+      </section>
+    </div>
+
   </body>
 </html>

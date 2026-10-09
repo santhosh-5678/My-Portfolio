@@ -14,11 +14,6 @@ function hideComingSoon() {
   modal.setAttribute("aria-hidden", "true");
 }
 
-/* =========================================
-   PROJECTS CAROUSEL
-   Arrow + Mouse Drag + Touch Swipe
-========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const viewport =
@@ -33,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton =
     document.getElementById("projectsNext");
 
-
   if (
     !viewport ||
     !track ||
@@ -42,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ) {
     return;
   }
-
 
   const cards = Array.from(
     track.querySelectorAll(".project-card")
@@ -129,11 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let startTranslate = 0;
 
-
-  /* =========================================
-     NUMBER OF VISIBLE CARDS
-  ========================================= */
-
   function getVisibleCards() {
 
     if (window.innerWidth <= 650) {
@@ -147,11 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return 3;
   }
 
-
-  /* =========================================
-     MAXIMUM POSITION
-  ========================================= */
-
   function getMaxIndex() {
 
     const visibleCards = getVisibleCards();
@@ -161,11 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cards.length - visibleCards
     );
   }
-
-
-  /* =========================================
-     GET CARD MOVEMENT
-  ========================================= */
 
   function getCardMovement() {
 
@@ -184,11 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardWidth + gap;
   }
 
-
-  /* =========================================
-     UPDATE CAROUSEL
-  ========================================= */
-
   function updateCarousel(animate = true) {
 
     const maxIndex = getMaxIndex();
@@ -198,10 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
       Math.min(currentIndex, maxIndex)
     );
 
-
     const movement =
       currentIndex * getCardMovement();
-
 
     if (!animate) {
 
@@ -216,11 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     track.style.transform =
       `translateX(-${movement}px)`;
-
-
-    /* =========================================
-       UPDATE ARROW STATES
-    ========================================= */
 
     if (currentIndex <= 0) {
 
@@ -242,11 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  /* =========================================
-     NEXT
-  ========================================= */
-
   nextButton.addEventListener("click", () => {
 
     if (isDragging) return;
@@ -257,19 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxIndex =
       getMaxIndex();
 
-
-    /*
-      Move by the number of visible cards.
-
-      Example:
-
-      6 projects
-      [1 2 3] → [4 5 6]
-
-      5 projects
-      [1 2 3] → [3 4 5]
-    */
-
     currentIndex = Math.min(
       currentIndex + visibleCards,
       maxIndex
@@ -279,11 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel(true);
   });
 
-
-  /* =========================================
-     PREVIOUS
-  ========================================= */
-
   prevButton.addEventListener("click", () => {
 
     if (isDragging) return;
@@ -291,18 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const visibleCards =
       getVisibleCards();
-
-
-    /*
-      Move backwards by the number
-      of visible cards.
-
-      Example:
-
-      [4 5 6] → [1 2 3]
-
-      [3 4 5] → [1 2 3]
-    */
 
     currentIndex = Math.max(
       currentIndex - visibleCards,
@@ -313,23 +244,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel(true);
   });
 
-
-  /* =========================================
-     POINTER DOWN
-     Works for:
-     - Mouse
-     - Touch
-     - Pen
-  ========================================= */
-
   viewport.addEventListener(
     "pointerdown",
     (event) => {
-
-      /*
-        Don't start dragging when clicking
-        directly on buttons/links.
-      */
 
       if (
         event.target.closest("a") ||
@@ -338,17 +255,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-
       isDragging = true;
 
       startX = event.clientX;
 
       currentX = startX;
-
-
-      /*
-        Get current transform position.
-      */
 
       startTranslate =
         -currentIndex * getCardMovement();
@@ -356,22 +267,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       viewport.classList.add("dragging");
 
-
-      /*
-        Capture pointer so dragging
-        continues outside the viewport.
-      */
-
       viewport.setPointerCapture(
         event.pointerId
       );
     }
   );
-
-
-  /* =========================================
-     POINTER MOVE
-  ========================================= */
 
   viewport.addEventListener(
     "pointermove",
@@ -379,26 +279,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isDragging) return;
 
-
       currentX = event.clientX;
-
 
       const diff =
         currentX - startX;
 
-
-      /*
-        Add resistance when trying to
-        drag beyond the beginning/end.
-      */
-
       const maxTranslate =
         -(getMaxIndex() * getCardMovement());
 
-
       let newTranslate =
         startTranslate + diff;
-
 
       if (newTranslate > 0) {
 
@@ -406,7 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
           newTranslate * 0.35;
 
       }
-
 
       if (newTranslate < maxTranslate) {
 
@@ -417,11 +306,6 @@ document.addEventListener("DOMContentLoaded", () => {
           maxTranslate + extra * 0.35;
       }
 
-
-      /*
-        Disable transition while dragging.
-      */
-
       track.style.transition = "none";
 
 
@@ -429,11 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `translateX(${newTranslate}px)`;
     }
   );
-
-
-  /* =========================================
-     END DRAG
-  ========================================= */
 
   function endDrag(event) {
 
@@ -444,23 +323,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     viewport.classList.remove("dragging");
 
-
-    /*
-      Calculate how far the user dragged.
-    */
-
     const diff =
       currentX - startX;
 
 
     const threshold = 60;
-
-
-    /*
-      Drag LEFT
-      ↓
-      Next projects
-    */
 
     if (diff < -threshold) {
 
@@ -471,13 +338,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-
-    /*
-      Drag RIGHT
-      ↓
-      Previous projects
-    */
-
     else if (diff > threshold) {
 
       currentIndex =
@@ -487,17 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-
-    /*
-      Snap to nearest valid position.
-    */
-
     updateCarousel(true);
-
-
-    /*
-      Release pointer.
-    */
 
     try {
 
@@ -506,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
     } catch (error) {
-      // Pointer may already be released.
+
     }
   }
 
@@ -743,6 +593,177 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       hideComingSoon();
+    }
+  });
+});
+
+/* ===== Portfolio AI Chatbot: UI and voice input ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("chatbot-toggle");
+  const chatWindow = document.getElementById("chatbot-window");
+  const closeButton = document.getElementById("chatbot-close");
+  const form = document.getElementById("chatbot-form");
+  const input = document.getElementById("chatbot-input");
+  const messages = document.getElementById("chatbot-messages");
+  const micButton = document.getElementById("chatbot-mic");
+  const suggestions = document.getElementById("chatbot-suggestions");
+
+  if (
+    !toggle || !chatWindow || !closeButton ||
+    !form || !input || !messages || !micButton
+  ) return;
+
+  function openChat() {
+    chatWindow.classList.add("is-open");
+    chatWindow.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    input.focus();
+  }
+
+  function closeChat() {
+    chatWindow.classList.remove("is-open");
+    chatWindow.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.focus();
+  }
+
+  toggle.addEventListener("click", () => {
+    if (chatWindow.classList.contains("is-open")) {
+      closeChat();
+    } else {
+      openChat();
+    }
+  });
+
+  closeButton.addEventListener("click", closeChat);
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      chatWindow.classList.contains("is-open")
+    ) {
+      closeChat();
+    }
+  });
+
+  function addMessage(text, type) {
+    const bubble = document.createElement("div");
+    bubble.className = `chat-message ${type}-message`;
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  
+async function sendMessage(text) {
+  const message = text.trim();
+  if (!message) return;
+
+  openChat();
+  addMessage(message, "user");
+  input.value = "";
+
+  const loadingBubble = document.createElement("div");
+  loadingBubble.className = "chat-message bot-message"; 
+  loadingBubble.textContent = "Thinking...";
+  messages.appendChild(loadingBubble);
+  messages.scrollTop = messages.scrollHeight;
+
+  try {
+    const response = await fetch(
+      "https://gentle-water-4659.santhoshkumarnaikgp5678.workers.dev/chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "The AI service returned an error.");
+    }
+
+    loadingBubble.textContent =
+      data.reply || "I couldn't generate a response. Please try again.";
+  } catch (error) {
+    console.error("Chatbot request failed:", error);
+
+    loadingBubble.textContent =
+      error.message === "Failed to fetch"
+        ? "I couldn't connect to the AI service. Please try again."
+        : error.message || "Something went wrong. Please try again.";
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+}
+
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    sendMessage(input.value);
+  });
+
+  if (suggestions) {
+    suggestions.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-question]");
+      if (button) sendMessage(button.dataset.question);
+    });
+  }
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    micButton.title = "Voice input isn't supported by this browser";
+    micButton.addEventListener("click", () => {
+      addMessage(
+        "Voice input isn't supported in this browser. Please type your question.",
+        "bot"
+      );
+    });
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  micButton.addEventListener("click", () => {
+    try {
+      recognition.start();
+    } catch {
+      // Prevent duplicate start errors if recognition is already running.
+    }
+  });
+
+  recognition.addEventListener("start", () => {
+    micButton.classList.add("is-listening");
+    micButton.setAttribute("aria-label", "Listening");
+  });
+
+  recognition.addEventListener("result", (event) => {
+    input.value = event.results[0][0].transcript;
+    input.focus();
+  });
+
+  recognition.addEventListener("end", () => {
+    micButton.classList.remove("is-listening");
+    micButton.setAttribute("aria-label", "Speak your question");
+  });
+
+  recognition.addEventListener("error", (event) => {
+    micButton.classList.remove("is-listening");
+
+    if (event.error !== "no-speech" && event.error !== "aborted") {
+      addMessage(
+        "I couldn't access voice input. Check your browser's microphone permission, or type your question instead.",
+        "bot"
+      );
     }
   });
 });
