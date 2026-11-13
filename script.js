@@ -449,14 +449,79 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const viewport = document.getElementById("experienceViewport");
+  const track = document.querySelector("#experience .experience-grid");
+  const previousButton = document.getElementById("experiencePrev");
+  const nextButton = document.getElementById("experienceNext");
+
+  if (!viewport || !track || !previousButton || !nextButton) {
+    return;
+  }
+
+  const cards = Array.from(track.querySelectorAll(".experience-card"));
+  if (!cards.length) {
+    return;
+  }
+
+  let currentIndex = 0;
+
+  const getMovement = () => {
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+    return cards[0].getBoundingClientRect().width + gap;
+  };
+
+  const getMaxIndex = () => {
+    const movement = getMovement();
+    const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+    const visibleCards = Math.max(
+      1,
+      Math.floor((viewport.clientWidth + gap) / movement)
+    );
+    return Math.max(0, cards.length - visibleCards);
+  };
+
+  const updateControls = () => {
+    currentIndex = Math.max(
+      0,
+      Math.min(Math.round(viewport.scrollLeft / getMovement()), getMaxIndex())
+    );
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === getMaxIndex();
+  };
+
+  const scrollToIndex = (index) => {
+    currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+    viewport.scrollTo({
+      left: currentIndex * getMovement(),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+    updateControls();
+  };
+
+  previousButton.addEventListener("click", () => {
+    scrollToIndex(currentIndex - 1);
+  });
+
+  nextButton.addEventListener("click", () => {
+    scrollToIndex(currentIndex + 1);
+  });
+
+  viewport.addEventListener("scroll", updateControls, { passive: true });
+  window.addEventListener("resize", updateControls);
+  updateControls();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   const titlePrefix = document.getElementById("job-title-prefix");
   const titleAccent = document.getElementById("job-title-accent");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (titlePrefix && titleAccent) {
-    const prefixText = "A Software";
-    const accentText = "Developer";
-    const fullText = prefixText + accentText;
+    const prefixText = "AI";
+    const accentText = "Backend Developer";
+    const fullText = prefixText + " " + accentText;
     const fixedCharacters = 2;
 
     if (reduceMotion) {

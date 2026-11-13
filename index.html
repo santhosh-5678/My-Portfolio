@@ -1,19 +1,34 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Santhosh - Portfolio</title>
+
+    <!-- SEO Metadata -->
+    <meta name="description" content="Santhosh Kumar Naik is a backend-focused software developer working with Python, Go, PostgreSQL and AI technologies.">
+
+    <!-- LinkedIn Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Santhosh Kumar Naik | Portfolio" />
+    <meta property="og:description" content="Explore my projects, technical skills and experience in backend development and AI-powered applications." />
+    <meta property="og:url" content="https://my-portfolio.santhoshkumarnaikgp5678.workers.dev/" />
+
+    <!-- Existing CSS and Fonts -->
     <link rel="stylesheet" href="style.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-  </head>
+</head>
   <body>
     <div class="portfolio-container">
       <header class="integrated-header">
@@ -116,7 +131,7 @@
             <span class="intro-line"
               >I'm <span class="accent-text">Santhosh Kumar</span></span
             ><br />
-            <span class="job-title" aria-label="A Software Developer">
+            <span class="job-title" aria-label="AI Backend Developer">
               <span class="job-title-text" aria-hidden="true">
                 <span class="job-title-live">
                   <span id="job-title-prefix"></span>
@@ -127,11 +142,7 @@
             </span>
           </h1>
           <p class="description">
-            I'm a software developer with a backend-focused approach to building
-            AI-powered applications. I work with Python, FastAPI, PostgreSQL,
-            and modern AI technologies to develop reliable APIs and practical
-            intelligent solutions. My focus is on building software that is
-            useful, maintainable, and ready for real-world use.
+            I’m an AI Backend Developer who builds the systems that power intelligent applications. I design reliable REST APIs, structure data in PostgreSQL, and connect LLMs, OCR, and machine learning models so they work smoothly inside real products. I care about clean code, solid error handling, and software that keeps working when things go wrong.
           </p>
           <div class="button-group">
             <a href="#projects" class="btn-primary">View work</a>
@@ -189,7 +200,7 @@
         </div>
         <div class="hero-image">
           <img
-            src="images/photo.jpg"
+            src="images/photo2.jpg"
             alt="Santhosh Profile"
             class="clean-profile-pic"
           />
@@ -219,27 +230,15 @@
 
           <div class="about-card-box animate-slide-in-right">
             <h3 class="about-heading">
-              <span class="heading-ai">Software Developer</span>
+              <span class="heading-ai">AI Backend Developer</span>
             </h3>
 
             <p class="about-paragraph text-justify">
-              I'm a computer science graduate with a strong interest in software
-              development, particularly backend engineering and AI. I enjoy
-              learning by building things, from designing APIs and working with
-              databases to integrating AI into applications. My projects have
-              given me the opportunity to explore Python, FastAPI, PostgreSQL,
-              REST APIs, and AI technologies while turning what I learn into
-              working applications.
+              Hi, I’m Santhosh Kumar Naik, a 2026 B.Tech graduate in Artificial Intelligence and Machine Learning from Hyderabad. I got into tech because I love figuring out how things work behind the screen, and that curiosity pulled me toward backend development and AI. I’m still early in my career, but I’m always learning, and I enjoy turning new ideas into something that actually works.
             </p>
 
             <p class="about-paragraph text-justify">
-              As I begin my professional journey, I’m focused on improving one
-              skill at a time and putting what I learn into practice. I spend
-              time understanding concepts, building projects, solving problems,
-              and going back to the areas I find challenging until they become
-              clearer. I’m looking for an opportunity where I can contribute,
-              learn from experienced developers, and grow into a strong software
-              engineer while building useful and reliable products.
+             Most of what I know, I learned by building and breaking things. I usually start small, get a basic version running, and then test it with messy, real-world inputs to see where it fails. Then I go back, find the root cause, and fix it properly instead of patching it. I like to think ahead about errors, retries, and bad data, and I avoid repeating work by saving results in a database. Feedback from mentors and code reviews has helped me improve a lot, and I try to apply it every time.
             </p>
 
             <div class="about-skills-showcase">
@@ -419,119 +418,217 @@
       </section>
 
       <!-- Experience -->
-        <section id="experience" class="page-section experience-section">
-            <div class="section-header">
-              <h2 class="section-title">
-                <span class="title-black">Work</span><span class="title-orange">Experience</span>
-              </h2>
-              <p class="section-subtitle">Where I applied my skills</p>
+      <section id="experience" class="page-section experience-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-black">Work</span><span class="title-orange">Experience</span>
+          </h2>
+          <p class="section-subtitle">Where I applied my skills</p>
+        </div>
+
+        <div class="experience-carousel">
+          <div
+            class="experience-viewport"
+            id="experienceViewport"
+            tabindex="0"
+            aria-label="Work experience"
+          >
+            <div class="experience-grid">
+          <!-- Experience - 01 -->
+          <article class="experience-card experience-card-one">
+            <div class="experience-number">01</div>
+            <div class="experience-arrow" aria-hidden="true">↗</div>
+
+            <div class="experience-header">
+              <span class="experience-type">Machine Learning Internship</span>
+              <h3>Machine Learning Developer</h3>
+              <div class="experience-company">Kreative Timebox</div>
+              <span class="experience-date">Jan 2026 — May 2026</span>
             </div>
 
-            <div class="experience-grid">
-              <!-- Experience - 01 -->
-              <article class="experience-card experience-card-one">
-                <div class="experience-number">01</div>
-                <div class="experience-arrow" aria-hidden="true">↗</div>
+            <div class="experience-divider"></div>
 
-                <div class="experience-header">
-                  <span class="experience-type">BACKEND DEVELOPMENT</span>
-                  <h3>Software Developer Intern</h3>
-                  <div class="experience-company">GetCollab</div>
-                  <span class="experience-date">Jul 2026 — Present</span>
+            <div class="experience-content">
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◉</div>
+                <div class="impact-text">
+                  <p>
+                    Built a DocTR OCR and regex pipeline for receipt data extraction,
+                    then analyzed its failures on blurry receipts across about 20
+                    different layouts to find what needed a better approach.
+                  </p>
                 </div>
+              </div>
 
-                <div class="experience-divider"></div>
-
-                <div class="experience-content">
-                  <div class="impact-item">
-                    <div class="impact-icon" aria-hidden="true">⚡</div>
-                    <div class="impact-text">
-                      <p>
-                        Researched web scraping solutions and integrated a Web Scraper
-                        API into a scheduled backend workflow to retrieve Instagram
-                        profile data and process influencer connection requests.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="impact-item">
-                    <div class="impact-icon" aria-hidden="true">◉</div>
-                    <div class="impact-text">
-                      <p>
-                        Implemented database storage and lookup logic to reuse retrieved
-                        influencer data during brand searches, avoiding unnecessary
-                        repeated scraping requests.
-                      </p>
-                    </div>
-                  </div>
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">⚡</div>
+                <div class="impact-text">
+                  <p>
+                    Replaced it with an OCR and LLM pipeline (LightOn OCR, Qwen2.5,
+                    Phi-3 Mini) that outputs structured JSON with about 80–90% field
+                    accuracy, validated on 500+ receipts with automated tests and
+                    manual checks.
+                  </p>
                 </div>
+              </div>
 
-                <div class="experience-footer">
-                  <span>Go</span>
-                  <span>Node.js</span>
-                  <span>Database</span>
-                  <span>Web Scraper API</span>
-                  <span>Docker</span>
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◈</div>
+                <div class="impact-text">
+                  <p>
+                    Fine-tuned YOLOv11 on 3,000+ receipt images to detect and crop item
+                    regions, raising precision from 75% to 86% and mAP@50 from 78% to 89%.
+                  </p>
                 </div>
-              </article>
+              </div>
+            </div>
+
+            <div class="experience-footer">
+              <span>Python</span>
+              <span>OCR</span>
+              <span>LLM</span>
+              <span>YOLOv11</span>
+            </div>
+          </article>
 
           <!-- ==================== EXPERIENCE 02 ==================== -->
-            <article class="experience-card experience-card-two">
-                <div class="experience-number">02</div>
-                <div class="experience-arrow" aria-hidden="true">↗</div>
+          <article class="experience-card experience-card-two">
+            <div class="experience-number">02</div>
+            <div class="experience-arrow" aria-hidden="true">↗</div>
 
-                <div class="experience-header">
-                  <span class="experience-type">AI &amp; COMPUTER VISION</span>
-                  <h3>Machine Learning Intern</h3>
-                  <div class="experience-company">Kreative Timebox</div>
-                  <span class="experience-date">Jan 2026 — May 2026</span>
+            <div class="experience-header">
+              <span class="experience-type">AI &amp; ML Internship</span>
+              <h3>AIML Intern</h3>
+              <div class="experience-company">QSkill</div>
+              <span class="experience-date">Jun 2026 — Jul 2026</span>
+            </div>
+
+            <div class="experience-divider"></div>
+
+            <div class="experience-content">
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">⚡</div>
+                <div class="impact-text">
+                  <p>
+                    Built a House Price Prediction model, covering data preprocessing,
+                    model training, and evaluation using Scikit-Learn, Pandas, and NumPy.
+                  </p>
                 </div>
+              </div>
 
-                <div class="experience-divider"></div>
-
-                <div class="experience-content">
-                  <div class="impact-item">
-                    <div class="impact-icon" aria-hidden="true">◉</div>
-                    <div class="impact-text">
-                      <p>
-                        Developed a DocTR OCR and configurable Regex pipeline for receipt
-                        data extraction, then implemented an OCR and LLM-based approach
-                        to handle varying receipt layouts.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="impact-item">
-                    <div class="impact-icon" aria-hidden="true">⚡</div>
-                    <div class="impact-text">
-                      <p>
-                        Implemented image-quality-based processing using Qwen for
-                        low-quality receipts and LightOn OCR with Phi-3 Mini to extract
-                        structured receipt data in JSON format.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="impact-item">
-                    <div class="impact-icon" aria-hidden="true">◈</div>
-                    <div class="impact-text">
-                      <p>
-                        Trained and fine-tuned YOLOv11 on 3,000+ receipt images from
-                        Roboflow and Kaggle to detect and crop item regions, then used
-                        Phi-3 Mini to extract structured item details.
-                      </p>
-                    </div>
-                  </div>
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◉</div>
+                <div class="impact-text">
+                  <p>
+                    Developed an NLP-based spam detector, handling text preprocessing,
+                    training, and evaluation to classify messages as spam or not spam.
+                  </p>
                 </div>
+              </div>
 
-                <div class="experience-footer">
-                  <span>Python</span>
-                  <span>OCR</span>
-                  <span>LLM</span>
-                  <span>YOLOv11</span>
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◈</div>
+                <div class="impact-text">
+                  <p>
+                    Wrapped both models in Flask interfaces so users can get
+                    real-time predictions through a simple web app.
+                  </p>
                 </div>
-              </article>
-          </section>
+              </div>
+            </div>
+
+            <div class="experience-footer">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>Scikit-Learn</span>
+              <span>Pandas</span>
+              <span>NumPy</span>
+            </div>
+          </article>
+
+          <!-- ==================== EXPERIENCE 03 ==================== -->
+          <article class="experience-card experience-card-three">
+            <div class="experience-number">03</div>
+            <div class="experience-arrow" aria-hidden="true">↗</div>
+
+            <div class="experience-header">
+              <span class="experience-type">BACKEND DEVELOPMENT</span>
+              <h3>Software Developer Intern</h3>
+              <div class="experience-company">GetCollab</div>
+              <span class="experience-date">Jul 2026 — Oct 2026</span>
+            </div>
+
+            <div class="experience-divider"></div>
+
+            <div class="experience-content">
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">⚡</div>
+                <div class="impact-text">
+                  <p>
+                    Built a cron-scheduled backend workflow that queues influencer
+                    connection requests as pending, then batch-verifies 30–50 requests
+                    per day through the Bright Data API and updates their status.
+                  </p>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◉</div>
+                <div class="impact-text">
+                  <p>
+                    Cut external API usage and cost by storing verified influencer
+                    profiles in PostgreSQL, so repeat brand searches read from the
+                    database instead of calling the API again.
+                  </p>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon" aria-hidden="true">◈</div>
+                <div class="impact-text">
+                  <p>
+                    Designed failure handling that fails invalid usernames immediately
+                    and automatically retries server errors, with about 75% of
+                    verification requests succeeding. Tested and debugged endpoints
+                    with Postman and applied code-review feedback.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience-footer">
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>Bright Data API</span>
+              <span>Cron Jobs</span>
+              <span>Postman</span>
+            </div>
+          </article>
+            </div>
+          </div>
+          <div class="experience-controls">
+            <button
+              class="experience-control"
+              id="experiencePrev"
+              type="button"
+              aria-controls="experienceViewport"
+              aria-label="Previous experience"
+              disabled
+            >
+              <span aria-hidden="true">&lsaquo;</span>
+            </button>
+            <button
+              class="experience-control"
+              id="experienceNext"
+              type="button"
+              aria-controls="experienceViewport"
+              aria-label="Next experience"
+            >
+              <span aria-hidden="true">&rsaquo;</span>
+            </button>
+          </div>
+        </div>
+      </section>
 
       <section id="projects" class="page-section">
         <div class="section-header">
